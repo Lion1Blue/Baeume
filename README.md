@@ -7,11 +7,18 @@ Bäume sind verallgemeinerte Listenstrukturen, denn Elemente(Knote) können mehr
 
 
 ## Binärbaum
-Ein Binärbaum ist ein Baum, bei dem jeder Knoten maximal zwei Söhne(Knoten) haben kann.
-Das Element mit dem größeren Wert als rechter Sohn, mit dem kleineren als linker Sohn.
+>Binärbäume sind in der Informatik die am häufigsten verwendete Unterart der Bäume. Im Gegensatz zu anderen Arten von Bäumen können die Knoten eines Binärbaumes nur höchstens zwei direkte Nachkommen haben.
+>Meist wird verlangt, dass sich die Kindknoten eindeutig in linkes und rechtes Kind einteilen lassen. Ein anschauliches Beispiel für einen solchen Binärbaum ist die Ahnentafel, bei der allerdings die Elternteile durch die Kindknoten zu modellieren sind.
+>Ein Binärbaum ist entweder leer, oder er besteht aus einer Wurzel mit einem linken und rechten Teilbaum, die wiederum Binärbäume sind.
+>
+>
+>
 
 ## Natürliche Bäume
 
+### Einfügen
+
+### Suchen
 
 ## Balancierte Bäume
 
