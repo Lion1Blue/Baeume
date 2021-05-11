@@ -247,6 +247,15 @@ Binärbaum nach dem Entfernen:
 
 Schlüssel **7**
 
+**7** wird mit 15 (Wurzel) verglichen  
+-> **7** ist kleiner -> es wird im linken Sohn weitergesucht  
+**7** wird mit 6 verglichen  
+-> **7** ist größer -> es wird im rechten Sohn weitergesucht  
+**7** wird mit 7 verglichen  
+Knoten wurde gefunden  
+Knoten ist ein Blatt  
+-> Knoten mit dem Schlüssel 7 wird entfernt  
+
 Binärbaum nach dem Entfernen:  
 
 [BinärbaumEntfernen7]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen7.png  "Optionaler Titel"
