@@ -25,9 +25,32 @@ Natürliche Bäume sind Binärbäume die zur Speicherung von Schlüsseln eingese
 Prinzipiell wird zwischen zwei verschiedenen Speicherungsformen unterschieden.  
 Sind die Schlüssel nur in den inneren Knoten gespeichert und haben die Blätter keine Schlüssel, so spricht man von *Suchbäumen*. Sind die Schlüssel in den Blättern gespeichert, Spricht man von *Blattsuchbäumen*.
 
+Suchbäume lassen sich folgendermaßen charakterisieren. Für jeden Knoten *p* gilt:  
+Die Schlüssel im linken Teilbaum von *p* sind sämtlich kleiner als der Schlüssel von *p*, und dieser ist wiederum kleiner als sämtliche Schlüssel im rechten Teilbaum von *p*.
+
+Die folgenden Methoden zum Einfügen, Suchen und Entfernen werden nur für den *Suchbaum* beschrieben.
+
 ### Einfügen
 
 ### Suchen
+  
+```
+Suche(p, x);
+{ sucht im Baum mit Wurzel p nach einem Schlüssel x }
+
+Fall 1 [p ist innerer Knoten mit linkem Sohn p1 und rechtem Sohn p2]
+   if x < Schlüssel(p)
+      then Suche(p1, x)
+   else
+      if x > Schlüssel(p)
+         then Suche(p2, x)
+      else { x = Schlüssel(p), d.h. gesuchter Schlüssel p gefunden }
+      
+Fall 2 [p ist Blatt]
+   { gesuchter Schlüssel kommt im Baum nicht vor }
+```
+
+### Entfernen
 
 ## Balancierte Bäume
 
