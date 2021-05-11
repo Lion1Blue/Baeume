@@ -26,7 +26,24 @@ Prinzipiell wird zwischen zwei verschiedenen Speicherungsformen unterschieden.
 Sind die Schlüssel nur in den inneren Knoten gespeichert und haben die Blätter keine Schlüssel, so spricht man von *Suchbäumen*. Sind die Schlüssel in den Blättern gespeichert, Spricht man von *Blattsuchbäumen*.
 
 Suchbäume lassen sich folgendermaßen charakterisieren. Für jeden Knoten *p* gilt:  
-Die Schlüssel im linken Teilbaum von *p* sind sämtlich kleiner als der Schlüssel von *p*, und dieser ist wiederum kleiner als sämtliche Schlüssel im rechten Teilbaum von *p*.
+Die Schlüssel im linken Teilbaum von *p* sind sämtlich kleiner als der Schlüssel von *p*, und dieser ist wiederum kleiner als sämtliche Schlüssel im rechten Teilbaum von *p*.    
+  
+Eine Zeigerrealisierung der Knoten sieht wie folgt aus:  
+````
+type
+  Knotenzeiger = ↑Knoten;
+  Knoten = record
+              leftson, rigthson : Knotenzeiger;
+              key : integer;
+           end
+````
+  
+Da die Blätter eines Suchbaumes keine Schlüssel speichern, müssen sie auch nicht explizit als Knoten des oben angegebenen Typs repräsentiert werden. Mankann sie vielmehr einfach durch **nil**-Zeiger in den jeweiligen Vätern repräsentieren.
+
+Ein Baum ist dann gegeben durch einen Zeiger auf die Wurzel:  
+````
+var root : Knotenzeiger
+````
 
 Die folgenden Methoden zum Einfügen, Suchen und Entfernen werden nur für den *Suchbaum* beschrieben.  
 Es wird dieser Binärbaum als Ausgangssituation verwendet:
@@ -34,24 +51,33 @@ Es wird dieser Binärbaum als Ausgangssituation verwendet:
 [Binärbaum]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaum.png  "Optionaler Titel"
 ![Alt-Text][Binärbaum]
 
+***
+
 ### Einfügen
 
 ````
-Einfügen(p, x)
-{ fügt in den Baum mit Wurzel p einen Knoten mit Schlüssel x ein }
+procedure Einfügen(p : Knotenzeiger; x : integer);
+{sucht im Baum mit Wurzel p nach Schlüssel x}
 
-Fall 1 [p ist inner Knoten mit linkem Sohn p1 und rechtem Sohn p2]
-  if x < Schlüssel(p)
-    then Einfügen(p1, x)
+begin
+  if p = nil
+    then {neuen Knoten mit Schlüssel x einfügen}
+      begin
+        new(p);
+        p↑.leftson := nil;;
+        p↑.leftson := nil
+        p↑.key := x
+        end
   else
-    if x > Schlüssel(p)
-      then Einfügen(p2, x)
+    if x < p↑.key
+      then Einfügen(p↑.leftson,x)
     else
-      write("Schlüssel kam schon vor")
-  
-Fall 2 [p ist Blatt]
-  then { neuen Knoten mit Schlüssel x einfügen }
-
+      if y > p↑.key
+        then Einfügen(p↑.rightson, x)
+      else
+        write('Knoten mit Schlüssel x gefunden')
+        
+end {Einfügen}
 ````
 
 #### Beispiel
@@ -86,19 +112,22 @@ Baum nach dem Einfügen der **1**
 ### Suchen
   
 ````
-Suche(p, x);
-{ sucht im Baum mit Wurzel p nach einem Schlüssel x }
+procedure Suche(p : Knotenzeiger; x : integer);
+{sucht im Baum mit Wurzel p nach Schlüssel x}
 
-Fall 1 [p ist innerer Knoten mit linkem Sohn p1 und rechtem Sohn p2]
-   if x < Schlüssel(p)
-      then Suche(p1, x)
-   else
-      if x > Schlüssel(p)
-         then Suche(p2, x)
-      else { x = Schlüssel(p), d.h. gesuchter Schlüssel p gefunden }
-      
-Fall 2 [p ist Blatt]
-   { gesuchter Schlüssel kommt im Baum nicht vor }
+begin
+  if p = nil
+    then write('Es gibt keinen Knotern im Baum mit Schlüssel x)
+  else
+    if x < p↑.key
+      then Suchen(p↑.leftson,x)
+    else
+      if y > p↑.key
+        then Suchen(p↑.rightson, x)
+      else
+        write('Knoten mit Schlüssel x gefunden')
+        
+end {Suchen}
 ````
 
 #### Beispiel:
@@ -129,7 +158,7 @@ linker Sohn ist ein Blatt
 
 ### Entfernen
 
->Um einen Knoten zu entfernen, sucht man zunächst nach dem zu entfernenden Schlüssel x. Kommt x im Baum nicht vor, ist nichts zu tun. Ist x der Schlüssel eines Knotens, der keinen oder nur einen inneren Knoten als Sohn hat, ist das Entfernen einfach. Man e
+>Um einen Knoten zu entfernen, sucht man zunächst nach dem zu entfernenden Schlüssel x. Kommt x im Baum nicht vor, ist nichts zu tun. Ist x der Schlüssel eines Knotens, der keinen oder nur einen inneren Knoten als Sohn hat, ist das Entfernen einfach. Man entfernt den Knoten mit Schlüssel x und ersetzt ihn gegebenenfalls durch seinen einzigen Sohn. Schwieriger ist das Entfernen von x, wenn x Schlüssel eines Knotens ist, dessen beide Söhne innere Knoten sind, die Schlüssel gespeichert haben. Sei x der Schlüssel des Knotens p. Dann suchen wir im rechten Teilbaum von p den Knoten q mit dem kleinsten Schlüssel y, der größer als x ist. Der Knoten q heist ***symmetrische Nachfolger*** von p. Man ersetzt nun den Schlüssel x swa Knotens p durch den Schlüssel y und entfernt den Knoten q.
 
 ````
 Entfernen(p, x)
@@ -146,7 +175,34 @@ Fall 2 [p ist inner Knoten mit linkem Sohn p1 und rechtem Sohn p2]
 ````
 
 
+![Alt-Text][Binärbaum]
+
+
 #### Beispiel
+
+Schlüssel **10**
+
+**10** wird mit  15 (Wurzel) verglichen  
+-> **10** ist kleiner -> es wird im linken Sohn weitergesucht  
+**10** wird mit 6 verglichen  
+-> **10** ist größer -> es wird im rechten Sohn weitergesucht  
+**10** wird mit 7 verglichen  
+-> **10** ist größer -> es wird im rechten Sohn weitergesucht  
+rechter Sohn ist ein Blatt -> der Knoten mit dem Schlüssel 10 kann **nicht** entfernt werden da er nicht existiert  
+
+
+Schlüssel **15**
+
+[BinärbaumEntfernen15]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen15.png  "Optionaler Titel"
+![Alt-Text][BinärbaumEntfernen15]
+
+Schlüssel **7**
+
+
+[BinärbaumEntfernen7]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen7.png  "Optionaler Titel"
+![Alt-Text][BinärbaumEntfernen7]
+
+***
 
 ## Balancierte Bäume
 
