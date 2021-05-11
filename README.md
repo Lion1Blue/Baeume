@@ -192,11 +192,31 @@ begin
     else
       if k > p↑.key
         then Entfernen(p↑.rightson, x)
-      
-
+      else {p↑.key = k}
+        if p↑.leftson = nil
+          then p := p↑.rigthson
+        else
+          if p↑.rigthson = nil
+            then p := p↑.leftson
+          else {p↑.lleftson != nil and p↑.rigthson != nil}
+            begin
+              q := vatersymnaach(p);
+              if q = p
+                then {rechter Sohn von q ist symmetrischer Nachfolger}
+                begin
+                  p↑.key := q↑.rigthson↑.key;
+                  q↑.rightson := q↑.rigthson↑.rightson
+                end
+              else {liker Sohn von q ist symmetrischer Nachfolger}
+                begin
+                  p↑.key = q↑.leftson↑.key;
+                  q↑.leftson := q↑.leftson↑.rightson
+            end
+end {Entfernen}
 ````
 
-
+Ausgangssituation Binärbaum:  
+  
 ![Alt-Text][Binärbaum]
 
 
@@ -215,11 +235,14 @@ rechter Sohn ist ein Blatt -> der Knoten mit dem Schlüssel 10 kann **nicht** en
 
 Schlüssel **15**
 
+Binärbaum nach dem Entfernen:  
+
 [BinärbaumEntfernen15]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen15.png  "Optionaler Titel"
 ![Alt-Text][BinärbaumEntfernen15]
 
 Schlüssel **7**
 
+Binärbaum nach dem Entfernen:  
 
 [BinärbaumEntfernen7]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen7.png  "Optionaler Titel"
 ![Alt-Text][BinärbaumEntfernen7]
