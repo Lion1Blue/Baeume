@@ -235,6 +235,11 @@ rechter Sohn ist ein Blatt -> der Knoten mit dem Schlüssel 10 kann **nicht** en
 
 Schlüssel **15**
 
+**15** wird mit 15 (Wurzel) vergleichen  
+-> Knoten wurde gefunden  
+rechter Sohn des Knotens hat nur einen Sohn (23)  
+-> 15 wird 23 ersetzt  
+
 Binärbaum nach dem Entfernen:  
 
 [BinärbaumEntfernen15]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen15.png  "Optionaler Titel"
