@@ -161,17 +161,39 @@ linker Sohn ist ein Blatt
 >Um einen Knoten zu entfernen, sucht man zunächst nach dem zu entfernenden Schlüssel x. Kommt x im Baum nicht vor, ist nichts zu tun. Ist x der Schlüssel eines Knotens, der keinen oder nur einen inneren Knoten als Sohn hat, ist das Entfernen einfach. Man entfernt den Knoten mit Schlüssel x und ersetzt ihn gegebenenfalls durch seinen einzigen Sohn. Schwieriger ist das Entfernen von x, wenn x Schlüssel eines Knotens ist, dessen beide Söhne innere Knoten sind, die Schlüssel gespeichert haben. Sei x der Schlüssel des Knotens p. Dann suchen wir im rechten Teilbaum von p den Knoten q mit dem kleinsten Schlüssel y, der größer als x ist. Der Knoten q heist ***symmetrische Nachfolger*** von p. Man ersetzt nun den Schlüssel x swa Knotens p durch den Schlüssel y und entfernt den Knoten q.
 
 ````
-Entfernen(p, x)
+function vatersymnach (p : Knotenzeiger) : Knotenzeiger;
+{liefert für einen Knotenzeiger p mit p↑.rightson ≠ nil einen Zeiger
+auf den Vater des symmetrischen Nachfolgers von p↑}
+
+begin
+  if p↑.rigthson↑.leftson ≠ nil
+    then  {sonst ist p das Ergebnis}
+      begin
+        p := p↑.rightson;
+        while p↑.leftson.↑leftson ≠ nil do
+          p := p↑.leftson
+      end;
+   vatersymnach := p
+end {vatersymnach}
+````
+
+````
+procedure Entfernen(p : Knotenzeiger; x : integer)
 { entfernt einen Knoten mit Schlüssel x aus dem Baum mit Wurzel p }
 
-Fall 1 [p ist Blatt]
-  then { Schlüssel x ist nicht im Baum vorhanden }
-  
-Fall 2 [p ist inner Knoten mit linkem Sohn p1 und rechtem Sohn p2]
-  if x > Schlüssel(p)
-    then Entfernen(p2, x)
+q : Knotenzeiger;
+
+begin
+  if p = nil
+    then {Schlüssel k nicht im Baum}
   else
-    
+    if k < p↑.key
+      then Entfernen(p↑.leftson, x)
+    else
+      if k > p↑.key
+        then Entfernen(p↑.rightson, x)
+      
+
 ````
 
 
