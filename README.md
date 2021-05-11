@@ -82,6 +82,8 @@ end {Einfügen}
 
 #### Beispiel
 
+***
+
 Schlüssel **7**
 
 **7** wird mit 15 (Wurzel) verglichen  
@@ -90,6 +92,8 @@ Schlüssel **7**
 -> **7** ist größer -> es wird im rechten Sohn weitergesucht  
 **7** wird mit 7 verglichen  
 -> **7** ist im Baum schon vorhanden, es wird **kein** Knoten eingefügt  
+
+***
 
 Schlüssel **1**
 
@@ -142,6 +146,8 @@ Schlüssel **50**
 -> **50** ist kleiner -> es wird im linken Sohn weitergesucht  
 **50** wird mit **50** verglichen  
 -> Knoten mit dem Schlüssel **50** wurde gefunden  
+
+***
 
 Schlüssel **1**  
 
@@ -232,6 +238,7 @@ Schlüssel **10**
 -> **10** ist größer -> es wird im rechten Sohn weitergesucht  
 rechter Sohn ist ein Blatt -> der Knoten mit dem Schlüssel 10 kann **nicht** entfernt werden da er nicht existiert  
 
+***
 
 Schlüssel **15**
 
@@ -244,6 +251,8 @@ Binärbaum nach dem Entfernen:
 
 [BinärbaumEntfernen15]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen15.png  "Optionaler Titel"
 ![Alt-Text][BinärbaumEntfernen15]
+
+***
 
 Schlüssel **7**
 
