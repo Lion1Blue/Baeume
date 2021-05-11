@@ -4,8 +4,8 @@
 >Da die Menge der Knoten eines Baumes stets als endlich vorausgesetzt wird, muss es Knoten geben, die keine Söhne haben. Diese Knoten werden üblicherweise als *Blätter* bezeichnet; alle anderen Knoten nennt man *innere Knoten*.
 
 
-[Bild 1]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Baum_Beispiel.jpg  "Optionaler Titel"
-![Alt-Text][Bild 1]
+[Baumstruktur]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Baum_Beispiel.jpg  "Optionaler Titel"
+![Alt-Text][Baumstruktur]
   
   
   
@@ -29,6 +29,10 @@ Suchbäume lassen sich folgendermaßen charakterisieren. Für jeden Knoten *p* g
 Die Schlüssel im linken Teilbaum von *p* sind sämtlich kleiner als der Schlüssel von *p*, und dieser ist wiederum kleiner als sämtliche Schlüssel im rechten Teilbaum von *p*.
 
 Die folgenden Methoden zum Einfügen, Suchen und Entfernen werden nur für den *Suchbaum* beschrieben.
+Für die Methoden wird dieser Binärbaum als Ausgangssituation verwendet:
+
+[Binärbaum]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaum.png  "Optionaler Titel"
+![Alt-Text][Binärbaum]
 
 ### Einfügen
 
@@ -49,6 +53,30 @@ Fall 1 [p ist innerer Knoten mit linkem Sohn p1 und rechtem Sohn p2]
 Fall 2 [p ist Blatt]
    { gesuchter Schlüssel kommt im Baum nicht vor }
 ```
+
+#### Beispiel:
+
+Schlüssel **50**
+
+**50** wird 15 (Wurzel) verglichen  
+-> **50** ist größer -> es wird im rechten Sohn weitergesucht  
+**50** wird mit 23 verglichen  
+-> **50** ist größer -> es wird im rechten Sohn weitergesucht  
+**50** wird mit 71 verglichen  
+-> **50** ist kleiner -> es wird im linken Sohn weitergesucht  
+**50** wird mit **50** verglichen  
+-> Knoten mit dem Schlüssel **50** wurde gefunden  
+
+Schlüssel **1**  
+
+**1** wird mit 15 (Wurzel) verglichen
+-> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
+**1** wird mit 6 verglichen  
+-> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
+**1** wird mit 4 verglichen  
+-> **1** ist kleiner -> es wird im linken Sohn wietergesucht  
+es gibt keinen linken Sohn  
+-> Knoten mit dem Schlüssel **1** wurde **nicht** gefunden  
 
 ### Entfernen
 
