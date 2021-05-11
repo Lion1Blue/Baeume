@@ -21,15 +21,15 @@ Da sie zu den meist verwendeten Datenstrukturen in der Informatik gehören, gibt
 
 ## Natürliche Bäume
 
-Natürliche Bäume sind Binärbäume die zur Speicherung von Schlüsseln eingesetzt werden. Es wird angenommen, dass sämtliche Schlüssel paarweise verschieden sind.
+Natürliche Bäume sind Binärbäume die zur Speicherung von Schlüsseln eingesetzt werden. Es wird angenommen, dass sämtliche Schlüssel paarweise verschieden und ganzzahlig sind.
 Prinzipiell wird zwischen zwei verschiedenen Speicherungsformen unterschieden.  
 Sind die Schlüssel nur in den inneren Knoten gespeichert und haben die Blätter keine Schlüssel, so spricht man von *Suchbäumen*. Sind die Schlüssel in den Blättern gespeichert, Spricht man von *Blattsuchbäumen*.
 
 Suchbäume lassen sich folgendermaßen charakterisieren. Für jeden Knoten *p* gilt:  
 Die Schlüssel im linken Teilbaum von *p* sind sämtlich kleiner als der Schlüssel von *p*, und dieser ist wiederum kleiner als sämtliche Schlüssel im rechten Teilbaum von *p*.
 
-Die folgenden Methoden zum Einfügen, Suchen und Entfernen werden nur für den *Suchbaum* beschrieben.
-Für die Methoden wird dieser Binärbaum als Ausgangssituation verwendet:
+Die folgenden Methoden zum Einfügen, Suchen und Entfernen werden nur für den *Suchbaum* beschrieben.  
+Es wird dieser Binärbaum als Ausgangssituation verwendet:
 
 [Binärbaum]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaum.png  "Optionaler Titel"
 ![Alt-Text][Binärbaum]
@@ -53,6 +53,35 @@ Fall 2 [p ist Blatt]
   then { neuen Knoten mit Schlüssel x einfügen }
 
 ````
+
+#### Beispiel
+
+Schlüssel **7**
+
+**7** wird mit 15 (Wurzel) verglichen  
+-> **7** ist kleiner -> es wird im liken Sohn weitergesucht  
+**7** wird mit 6 verglichen  
+-> **7** ist größer -> es wird im rechten Sohn weitergesucht  
+**7** wird mit 7 verglichen  
+-> **7** ist im Baum schon vorhanden, es wird **kein** Knoten eingefügt  
+
+Schlüssel **1**
+
+**1** wird mit 15 (Wurzel) verglichen  
+-> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
+**1** wird mit 6 verglichen  
+-> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
+**1** wird mit 4 verglichen  
+-> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
+linker Sohn ist ein Blatt  
+-> ein neuer Knoten mit dem Schlüssel **1** wird eingefügt  
+
+Baum nach dem Einfügen der **1**  
+
+[BinärbaumEinfügen]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEinf%C3%BCgen.png  "Optionaler Titel"
+![Alt-Text][BinärbaumEinfügen]
+
+***
 
 ### Suchen
   
@@ -96,9 +125,38 @@ Schlüssel **1**
 linker Sohn ist ein Blatt
 -> Knoten mit dem Schlüssel **1** wurde **nicht** gefunden  
 
+***
+
 ### Entfernen
 
+````
+Entfernen(p, x)
+{ entfernt einen Knoten mit Schlüssel x aus dem Baum mit Wurzel p }
+
+Fall 1 [p ist Blatt]
+  then { Schlüssel
+````
+
+
+#### Beispiel
+
 ## Balancierte Bäume
+
+### Einfügen
+
+#### Beispiel
+
+***
+
+### Suchen
+
+#### Beispiel
+
+***
+
+### Entfernen
+
+#### Beispiel
 
 ## Randomisierte Bäum
 
