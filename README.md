@@ -129,12 +129,20 @@ linker Sohn ist ein Blatt
 
 ### Entfernen
 
+>Um einen Knoten zu entfernen, sucht man zunächst nach dem zu entfernenden Schlüssel x. Kommt x im Baum nicht vor, ist nichts zu tun. Ist x der Schlüssel eines Knotens, der keinen oder nur einen inneren Knoten als Sohn hat, ist das Entfernen einfach. Man e
+
 ````
 Entfernen(p, x)
 { entfernt einen Knoten mit Schlüssel x aus dem Baum mit Wurzel p }
 
 Fall 1 [p ist Blatt]
-  then { Schlüssel
+  then { Schlüssel x ist nicht im Baum vorhanden }
+  
+Fall 2 [p ist inner Knoten mit linkem Sohn p1 und rechtem Sohn p2]
+  if x > Schlüssel(p)
+    then Entfernen(p2, x)
+  else
+    
 ````
 
 
