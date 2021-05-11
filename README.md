@@ -36,9 +36,27 @@ Für die Methoden wird dieser Binärbaum als Ausgangssituation verwendet:
 
 ### Einfügen
 
+````
+Einfügen(p, x)
+{ fügt in den Baum mit Wurzel p einen Knoten mit Schlüssel x ein }
+
+Fall 1 [p ist inner Knoten mit linkem Sohn p1 und rechtem Sohn p2]
+  if x < Schlüssel(p)
+    then Einfügen(p1, x)
+  else
+    if x > Schlüssel(p)
+      then Einfügen(p2, x)
+    else
+      write("Schlüssel kam schon vor")
+  
+Fall 2 [p ist Blatt]
+  then { neuen Knoten mit Schlüssel x einfügen }
+
+````
+
 ### Suchen
   
-```
+````
 Suche(p, x);
 { sucht im Baum mit Wurzel p nach einem Schlüssel x }
 
@@ -52,7 +70,7 @@ Fall 1 [p ist innerer Knoten mit linkem Sohn p1 und rechtem Sohn p2]
       
 Fall 2 [p ist Blatt]
    { gesuchter Schlüssel kommt im Baum nicht vor }
-```
+````
 
 #### Beispiel:
 
@@ -75,7 +93,7 @@ Schlüssel **1**
 -> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
 **1** wird mit 4 verglichen  
 -> **1** ist kleiner -> es wird im linken Sohn wietergesucht  
-es gibt keinen linken Sohn  
+linker Sohn ist ein Blatt
 -> Knoten mit dem Schlüssel **1** wurde **nicht** gefunden  
 
 ### Entfernen
