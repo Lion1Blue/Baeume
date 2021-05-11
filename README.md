@@ -1,10 +1,9 @@
 # Bäume
 
 >Bäume sind verallgemeinerte Listenstrukturen. Ein Element - überlicherweise spricht man von *Knoten* - hat nicht wie im Falle linearer Listen, nur einen Nachfolger, sondern eine endlich, begrenzte Anzahl von so genannten *Söhnen*. In der Regel ist einer der Knoten als *Wurzel* des Baumes ausgezeichnet. Das ist zugleich der einzige Knoten ohne *Vorgänger*. Jeder andere Knoten hat einen unmittelbaren Vorgänger, der auch *Vater* des Knotens genannt wird. Da die Menge der Knoten eines Baumes stets als endlich vorausgesetzt wird, muss es Knoten geben, die keine Söhne haben. Diese Knoten werden üblicherweise als *Blätter* bezeichnet; alle anderen Knoten nennt man *innere Knoten*.
-   
-   
-   
-[Bild 1]: http://www.tobias-stork.de/gymnasium/informatik/grundwissen/Baum_Beispiel.jpg  "Optionaler Titel"
+
+
+[Bild 1]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Baum_Beispiel.jpg  "Optionaler Titel"
 ![Alt-Text][Bild 1]
   
   
