@@ -53,7 +53,61 @@ Es wird dieser Binärbaum als Ausgangssituation verwendet:
 
 ***
 
+### Suchen
+
+>Wir beginnen bei der Wurzel p und vergleichen x mit dem bei p gespeicherten Schlüssel; ist x kleiner als der Schlüssel von p, setzten wir die Suche beim linken Sohn von p fort. Ist x größer als der Schlüssel von p, setzen wir die Suche beim rechten  Sohn von p fort. So lange bis der gesuchte Schlüssel gefunden ist.
+
+````
+procedure Suche(p : Knotenzeiger; x : integer);
+{sucht im Baum mit Wurzel p nach Schlüssel x}
+
+begin
+  if p = nil
+    then write('Es gibt keinen Knotern im Baum mit Schlüssel x)
+  else
+    if x < p↑.key
+      then Suchen(p↑.leftson,x)
+    else
+      if y > p↑.key
+        then Suchen(p↑.rightson, x)
+      else
+        write('Knoten mit Schlüssel x gefunden')
+        
+end {Suchen}
+````
+
+#### Beispiel:
+
+Schlüssel **50**
+
+**50** wird 15 (Wurzel) verglichen  
+-> **50** ist größer -> es wird im rechten Sohn weitergesucht  
+**50** wird mit 23 verglichen  
+-> **50** ist größer -> es wird im rechten Sohn weitergesucht  
+**50** wird mit 71 verglichen  
+-> **50** ist kleiner -> es wird im linken Sohn weitergesucht  
+**50** wird mit **50** verglichen  
+-> Knoten mit dem Schlüssel **50** wurde gefunden  
+
+***
+
+Schlüssel **1**  
+
+**1** wird mit 15 (Wurzel) verglichen
+-> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
+**1** wird mit 6 verglichen  
+-> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
+**1** wird mit 4 verglichen  
+-> **1** ist kleiner -> es wird im linken Sohn wietergesucht  
+linker Sohn ist ein Blatt
+-> Knoten mit dem Schlüssel **1** wurde **nicht** gefunden  
+
+***
+
+
 ### Einfügen
+
+>Wir beginnen bei der Wurzel p und vergleichen x mit dem bei p gespeicherten Schlüssel; ist x kleiner als der Schlüssel von p, setzten wir die Suche beim linken Sohn von p fort. Ist x größer als der Schlüssel von p, setzen wir die Suche beim rechten  Sohn von p fort. So lange bis der Sohn nil - also nicht vorhanden - ist, dort wird dann der neue Knoten eingefügt.
 
 ````
 procedure Einfügen(p : Knotenzeiger; x : integer);
@@ -110,57 +164,6 @@ Baum nach dem Einfügen der **1**
 
 [BinärbaumEinfügen]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEinf%C3%BCgen.png  "1 eingefügt"
 ![Alt-Text][BinärbaumEinfügen]
-
-***
-
-### Suchen
-
->Wir beginnen bei der Wurzel p und vergleichen x mit dem bei p gespeicherten Schlüssel; ist x kleiner als der Schlüssel von p, setzten wir die Suche beim linken Sohn von p fort. Ist x größer als der Schlüssel von p, setzen wir die Suche beim rechten  Sohn von p fort.
-
-````
-procedure Suche(p : Knotenzeiger; x : integer);
-{sucht im Baum mit Wurzel p nach Schlüssel x}
-
-begin
-  if p = nil
-    then write('Es gibt keinen Knotern im Baum mit Schlüssel x)
-  else
-    if x < p↑.key
-      then Suchen(p↑.leftson,x)
-    else
-      if y > p↑.key
-        then Suchen(p↑.rightson, x)
-      else
-        write('Knoten mit Schlüssel x gefunden')
-        
-end {Suchen}
-````
-
-#### Beispiel:
-
-Schlüssel **50**
-
-**50** wird 15 (Wurzel) verglichen  
--> **50** ist größer -> es wird im rechten Sohn weitergesucht  
-**50** wird mit 23 verglichen  
--> **50** ist größer -> es wird im rechten Sohn weitergesucht  
-**50** wird mit 71 verglichen  
--> **50** ist kleiner -> es wird im linken Sohn weitergesucht  
-**50** wird mit **50** verglichen  
--> Knoten mit dem Schlüssel **50** wurde gefunden  
-
-***
-
-Schlüssel **1**  
-
-**1** wird mit 15 (Wurzel) verglichen
--> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
-**1** wird mit 6 verglichen  
--> **1** ist kleiner -> es wird im linken Sohn weitergesucht  
-**1** wird mit 4 verglichen  
--> **1** ist kleiner -> es wird im linken Sohn wietergesucht  
-linker Sohn ist ein Blatt
--> Knoten mit dem Schlüssel **1** wurde **nicht** gefunden  
 
 ***
 
@@ -296,7 +299,7 @@ Binärbaum nach dem Entfernen:
 
 ***
 
-### Nachteile von Binärbäumen
+### Nachteil von Binärbäumen
 
 >Das Suchen, Einfügen und Entfernen eines Schlüssels in einem zufällig erzeugten binären Suchbaum mit N Schlüsseln ist zwar im Mittel in O(log n) Schritten ausführbar. Im schlechtesten Fall kann jedoch ein Aufwand von der Ordnung O(N) zur Ausführung dieser Operationen erforderlich sein, weil der gegebene Baum mit N Schlüsseln zu einer lineraren Liste degeneriert ist.
 
@@ -304,25 +307,44 @@ Beispiel:
   
 [BinärbaumRechtsschief]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumRechtsschief.png  "rechtsschiefer Binärbaum"
 ![Alt-Text][BinärbaumRechtsschief]
-
+  
+Deshalb wird im folgenden Abschnitt auf balancierte Bäume eingegangen.
 
 ## Balancierte Bäume
 
+Aufgrund dieses Nachteils gibt es Balancierte Bäume. Diese verhindern durch zusätzliche Bedingungen ein Degenerieren der Baumstruktur. Im folgenden wird der AVL-Baum behandelt.
+
+## AVL-Bäume
+
+>Ein binärer Suchbaum ist *AVL-ausgeglichen* oder *höhenbalanciert*, kurz; Ein AVL-Baum, wenn für jeden Knoten p des Baumes gilt, dass sich die Höhe des linken Teilbaums von der Höhe des rechten Teilbaums von p höchstens um 1 unterscheidet.
+
+[AVL-Baum-Kein-AVL]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL_Baum_und_kein_AVL_Baum.jpg  "AVL-Baum"
+![Alt-Text][AVL-Baum-Kein-AVL]
+  
+Dadurch ist die Höhe des Suchbaums O(log n), womit alle weiteren Grundoperationen in O(log n) ausführbar sind.
+
+
+### Suchen
+
+> Da AVL-Bäume insbesondere binäre Suchbäume sind, kann man in ihnen nach einem Schlüssel geanuse suchen wie in einem natürlichen Baum. Dazu folgt man im schlechtesten Fall einem Pfad von der Wurzel zu einem Blatt. Weil die Höhe logarithmisch beschränkt bleibt, ist klar, dass man in einem AVL-Baum mit N Schlüsseln in höhstens O(log n) Schritten einen Schlüssel wieder finden kann bzw. feststellen kann, dass ein Schlüssel im Baum nicht vorkommt.
+
+#### Beispiel
+  
+siehe Beispiel natürlicher Baum.
+  
+***
 
 
 ### Einfügen
+>Um einen Schlüssel in einen AVL-Baum *einzufügen* sucht man zunächst nach dem Schlüssel noch nicht im Baum vorkommt, endet die Suche in einem Baltt, das die erwartete Position des Schlüssels repräsentiert. Man fügt den Schlüssel dort, wie im Falle natürlicher Bäume ein. Im Unterschied zu natürlichen Bäumen kann aber nunmehr ein Suchbaum vorliegen, der kein AVL-Baum mehr ist.  
 
-#### Beispiel
-
-***
-
-### Suchen
 
 #### Beispiel
 
 ***
 
 ### Entfernen
+>Zunächst geht man genau so vor wie bei natürlichen Suchbäumen. Man sucht nach dem zu entfernenden Schlüssel. Findet man ihn nicht, ist das Entfernen bereits beendet. Sonst liegt einer der folgenden drei Fälle vor:
 
 #### Beispiel
 
