@@ -279,10 +279,30 @@ Neues Beispiel:
   
 Schlüssel **65**
 
+**65** wird mit 41 (Wurzel) verglichen  
+-> **65** ist größer -> es wird im rechten Sohn weitergesucht  
+**65** wird mit 65 verglichen  
+-> Knoten zum Entfernen gefunden  
+Es wird im rechten Sohn das kleinste Element (symmetrischer Nachfolger) gesucht  
+-> symmetrischer Nachfolger ist 66  
+66 kommt an die Stelle der **65**  
+
 Binärbaum nach dem Entfernen:  
   
 [BinärbaumGroßEntfernen65]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumGroßEntfernen65.png  "Optionaler Titel"
 ![Alt-Text][BinärbaumGroßEntfernen65]
+
+***
+
+### Nachteile von Binärbäumen
+
+>Das Suchen, Einfügen und Entfernen eines Schlüssels in einem zufällig erzeugten binären Suchbaum mit N Schlüsseln ist zwar im Mittel in O(log n) Schritten ausführbar. Im schlechtesten Fall kann jedoch ein Aufwand von der Ordnung O(N) zur Ausführung dieser Operationen erforderlich sein, weil der gegebene Baum mit N Schlüsseln zu einer lineraren Liste degeneriert ist.
+
+Beispiel:  
+  
+[BinärbaumRechtsschief]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumRechtsschief.png  "Optionaler Titel"
+![Alt-Text][BinärbaumRechtsschief]
+
 
 ## Balancierte Bäume
 
