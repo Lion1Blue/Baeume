@@ -4,7 +4,7 @@
 >Da die Menge der Knoten eines Baumes stets als endlich vorausgesetzt wird, muss es Knoten geben, die keine Söhne haben. Diese Knoten werden üblicherweise als *Blätter* bezeichnet; alle anderen Knoten nennt man *innere Knoten*.
 
 
-[Baumstruktur]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Baum_Beispiel.jpg  "Optionaler Titel"
+[Baumstruktur]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Baum_Beispiel.jpg  "Baumstruktur"
 ![Alt-Text][Baumstruktur]
   
   
@@ -48,7 +48,7 @@ var root : Knotenzeiger
 Die folgenden Methoden zum Einfügen, Suchen und Entfernen werden nur für den *Suchbaum* beschrieben.  
 Es wird dieser Binärbaum als Ausgangssituation verwendet:
 
-[Binärbaum]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaum.png  "Optionaler Titel"
+[Binärbaum]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaum.png  "Binärbaum"
 ![Alt-Text][Binärbaum]
 
 ***
@@ -108,7 +108,7 @@ linker Sohn ist ein Blatt
 
 Baum nach dem Einfügen der **1**  
 
-[BinärbaumEinfügen]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEinf%C3%BCgen.png  "Optionaler Titel"
+[BinärbaumEinfügen]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEinf%C3%BCgen.png  "1 eingefügt"
 ![Alt-Text][BinärbaumEinfügen]
 
 ***
@@ -249,7 +249,7 @@ rechter Sohn des Knotens hat nur einen Sohn (23)
 
 Binärbaum nach dem Entfernen:  
 
-[BinärbaumEntfernen15]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen15.png  "Optionaler Titel"
+[BinärbaumEntfernen15]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen15.png  "15 entfernt"
 ![Alt-Text][BinärbaumEntfernen15]
 
 ***
@@ -267,14 +267,14 @@ Knoten ist ein Blatt
 
 Binärbaum nach dem Entfernen:  
 
-[BinärbaumEntfernen7]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen7.png  "Optionaler Titel"
+[BinärbaumEntfernen7]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumEntfernen7.png  "7 entfernt"
 ![Alt-Text][BinärbaumEntfernen7]
 
 ***
 
 Neues Beispiel:  
   
-[BinärbaumGroß]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumGroß.png  "Optionaler Titel"
+[BinärbaumGroß]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumGroß.png  "Binärbaum"
 ![Alt-Text][BinärbaumGroß]
   
 Schlüssel **65**
@@ -289,7 +289,7 @@ Es wird im rechten Sohn das kleinste Element (symmetrischer Nachfolger) gesucht
 
 Binärbaum nach dem Entfernen:  
   
-[BinärbaumGroßEntfernen65]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumGroßEntfernen65.png  "Optionaler Titel"
+[BinärbaumGroßEntfernen65]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumGroßEntfernen65.png  "65 entfernt"
 ![Alt-Text][BinärbaumGroßEntfernen65]
 
 ***
@@ -298,9 +298,9 @@ Binärbaum nach dem Entfernen:
 
 >Das Suchen, Einfügen und Entfernen eines Schlüssels in einem zufällig erzeugten binären Suchbaum mit N Schlüsseln ist zwar im Mittel in O(log n) Schritten ausführbar. Im schlechtesten Fall kann jedoch ein Aufwand von der Ordnung O(N) zur Ausführung dieser Operationen erforderlich sein, weil der gegebene Baum mit N Schlüsseln zu einer lineraren Liste degeneriert ist.
 
-Beispiel:  
+Beispiel:
   
-[BinärbaumRechtsschief]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumRechtsschief.png  "Optionaler Titel"
+[BinärbaumRechtsschief]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumRechtsschief.png  "rechtsschiefer Binärbaum"
 ![Alt-Text][BinärbaumRechtsschief]
 
 
