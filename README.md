@@ -272,6 +272,18 @@ Binärbaum nach dem Entfernen:
 
 ***
 
+Neues Beispiel:  
+  
+[BinärbaumGroß]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumGroß.png  "Optionaler Titel"
+![Alt-Text][BinärbaumGroß]
+  
+Schlüssel **65**
+
+Binärbaum nach dem Entfernen:  
+  
+[BinärbaumGroßEntfernen65]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/Bin%C3%A4rbaumGroßEntfernen65.png  "Optionaler Titel"
+![Alt-Text][BinärbaumGroßEntfernen65]
+
 ## Balancierte Bäume
 
 ### Einfügen
