@@ -114,7 +114,9 @@ Baum nach dem Einfügen der **1**
 ***
 
 ### Suchen
-  
+
+>Wir beginnen bei der Wurzel p und vergleichen x mit dem bei p gespeicherten Schlüssel; ist x kleiner als der Schlüssel von p, setzten wir die Suche beim linken Sohn von p fort. Ist x größer als der Schlüssel von p, setzen wir die Suche beim rechten  Sohn von p fort.
+
 ````
 procedure Suche(p : Knotenzeiger; x : integer);
 {sucht im Baum mit Wurzel p nach Schlüssel x}
@@ -220,7 +222,7 @@ begin
             end
 end {Entfernen}
 ````
-
+  
 Ausgangssituation Binärbaum:  
   
 ![Alt-Text][Binärbaum]
@@ -305,6 +307,8 @@ Beispiel:
 
 
 ## Balancierte Bäume
+
+
 
 ### Einfügen
 
