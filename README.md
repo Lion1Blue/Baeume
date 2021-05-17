@@ -323,7 +323,6 @@ Aufgrund dieses Nachteils gibt es Balancierte Bäume. Diese verhindern durch zus
   
 Dadurch ist die Höhe des Suchbaums O(log n), womit alle weiteren Grundoperationen in O(log n) ausführbar sind.
 
-
 ### Suchen
 
 > Da AVL-Bäume insbesondere binäre Suchbäume sind, kann man in ihnen nach einem Schlüssel geanuse suchen wie in einem natürlichen Baum. Dazu folgt man im schlechtesten Fall einem Pfad von der Wurzel zu einem Blatt. Weil die Höhe logarithmisch beschränkt bleibt, ist klar, dass man in einem AVL-Baum mit N Schlüsseln in höhstens O(log n) Schritten einen Schlüssel wieder finden kann bzw. feststellen kann, dass ein Schlüssel im Baum nicht vorkommt.
@@ -336,9 +335,56 @@ siehe Beispiel natürlicher Baum.
 
 
 ### Einfügen
->Um einen Schlüssel in einen AVL-Baum *einzufügen* sucht man zunächst nach dem Schlüssel noch nicht im Baum vorkommt, endet die Suche in einem Baltt, das die erwartete Position des Schlüssels repräsentiert. Man fügt den Schlüssel dort, wie im Falle natürlicher Bäume ein. Im Unterschied zu natürlichen Bäumen kann aber nunmehr ein Suchbaum vorliegen, der kein AVL-Baum mehr ist.  
+>Um einen Schlüssel in einen AVL-Baum *einzufügen* sucht man zunächst nach dem Schlüssel noch nicht im Baum vorkommt, endet die Suche in einem Baltt, das die erwartete Position des Schlüssels repräsentiert. Man fügt den Schlüssel dort, wie im Falle natürlicher Bäume ein. Im Unterschied zu natürlichen Bäumen kann aber nunmehr ein Suchbaum vorliegen, der kein AVL-Baum mehr ist.
+>Deshalb muss jeder Knoten einen Balance-Grad mitführen um die AVL-Bedingungen bei Operationen zu garantieren
+>bal(p) = Höhe des rechten Teilbaumes von p - Höhe des linken Teilbaumes von p
 
 
+[avlbaum]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/avlbaum.png  "AVL-Baum"
+![Alt-Text][avlbaum]
+
+AVL-Bäume sind daruch charakteriesiert, dass für jeden inneren Knoten p gilt bal(p) ∈ {-1, 0, +1}.
+
+Wird der Schlüssel x in einen leeren Baum einfügt, wird x die Wurzel des Baumes.
+
+Sonst sei p der Vater von einem Blatt und hat bal(p) ∈ {-1, 0, +1}  
+
+Fallunterscheidung beim Einfügen:
+
+**Fall 1 [bal(p) = +1]**
+
+
+
+**Fall 2 [bal(p) = -1]**
+
+**Fall 3 [bal(p) = 0]**
+
+>Durch Einfügen eines neuen Knotens als rechten oder linken Sohn von p wird p ein Knoten mit Balancefaktor -1 oder +1 und die Höhe des Teilbaumes mit Wurzel p wächst um 1. Wir rufen daher eine Prozedur *upin(p)* für den Knoten p auf, die den Suchpfad zurückläuft, die Balandefaktoren prüft, gegebenenfalls adjustiert und UMstrukturierungen (so genannte Rotationen oder Doppelrotationen) vornimmt, die sicherstellen, dass für alle Knoten die Höhendifferenten der jeweils zugehörigen Teilbäume wieder höchstens 1 sind. Also
+
+**Fall 3.1 [bal(p) = 0 und einzufügender Schlüssel x > Schlüssel k von p]**
+
+**Fall 3.2 [bal(p) = 0 und einzufügender Schlüssel x < Schlüssel k von p]**
+
+>Die Prozedur *upin*: Wenn *upin* aufgerufen wird, so ist bal(p) ∈ {-1, +1} und die Höhe des Teilbaumes mit Wurzel p ist um 1 gewachsen. Wir müssen darauf achten, dass diese Invariante vor jedem rekursien Aufruf von *upin* gilt; *upin(p)* bricht ab, falls p keinen Vater hat, d.h. wenn p die Wurzel des Baumes ist. Wir unter scheiden zwei Fälle, je nachdem ob p linker oder rechter Sohn seines Vaters φp.
+
+**Fall 1 [p ist linker Sohn seines Vaters φp]**
+
+**Fall 1.1 [bal(φp) = +1]**
+
+**Fall 1.2 [bal(φp) = 0]**
+
+**Fall 1.3 [bal(φp) = -1]**
+
+**Fall 1.3.1 [bal(p) = -1]**
+
+**Fall 1.3.2 [bal(p) = +1]**
+
+**Fall 2 [p ist rechter Sohn seines Vaters φp]**
+>In diesem Fall geht man völlig analog vor und gleicht den Baum, wenn nötig durch eine Rotation nach links. bzw. Doppelrotation rachts-links bei φp wieder aus.
+
+
+>Ein Aufruf der Prozedur *upin* kannn schlimmstenfalls für alle Knoten auf dem Sichpfad von der Einfügestelle zurück zur Wurzel erforderlich sein. In jedem Fall wird von der Einfügestelle zurück zur Wurzel erforderlich sein. In jedem Fall wird aber höchstens eine Rotation oder Doppelrotation durchgeführt.
+>
 #### Beispiel
 
 ***
