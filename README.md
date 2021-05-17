@@ -347,23 +347,40 @@ AVL-Bäume sind daruch charakteriesiert, dass für jeden inneren Knoten p gilt b
 
 Wird der Schlüssel x in einen leeren Baum einfügt, wird x die Wurzel des Baumes.
 
+[AVL-Baum-Einfügen-Wurzel]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-WurzelX.png  "AVL-Baum-Einfügen-Wurzel"
+![Alt-Text][AVL-Baum-Einfügen-Wurzel]
+
 Sonst sei p der Vater von einem Blatt und hat bal(p) ∈ {-1, 0, +1}  
 
 Fallunterscheidung beim Einfügen:
 
 **Fall 1 [bal(p) = +1]**
 
-
+[AVL-Baum-Einfügen-Fall1]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-Fall1.png  "AVL-Baum-Einfügen-Fall 1"
+![Alt-Text][AVL-Baum-Einfügen-Fall1]
 
 **Fall 2 [bal(p) = -1]**
 
+[AVL-Baum-Einfügen-Fall2]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-Fall2.png  "AVL-Baum-Einfügen-Fall 2"
+![Alt-Text][AVL-Baum-Einfügen-Fall2]
+
 **Fall 3 [bal(p) = 0]**
+
+[AVL-Baum-Einfügen-Fall3]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-Fall3.png  "AVL-Baum-Einfügen-Fall 3"
+![Alt-Text][AVL-Baum-Einfügen-Fall3]
+
 
 >Durch Einfügen eines neuen Knotens als rechten oder linken Sohn von p wird p ein Knoten mit Balancefaktor -1 oder +1 und die Höhe des Teilbaumes mit Wurzel p wächst um 1. Wir rufen daher eine Prozedur *upin(p)* für den Knoten p auf, die den Suchpfad zurückläuft, die Balandefaktoren prüft, gegebenenfalls adjustiert und UMstrukturierungen (so genannte Rotationen oder Doppelrotationen) vornimmt, die sicherstellen, dass für alle Knoten die Höhendifferenten der jeweils zugehörigen Teilbäume wieder höchstens 1 sind. Also
 
 **Fall 3.1 [bal(p) = 0 und einzufügender Schlüssel x > Schlüssel k von p]**
 
+[AVL-Baum-Einfügen-Fall3.1]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-Fall3.1.png  "AVL-Baum-Einfügen-Fall 3.1"
+![Alt-Text][AVL-Baum-Einfügen-Fall3.1]
+
 **Fall 3.2 [bal(p) = 0 und einzufügender Schlüssel x < Schlüssel k von p]**
+
+[AVL-Baum-Einfügen-Fall3.2]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-Fall3.2.png  "AVL-Baum-Einfügen-Fall 3.2"
+![Alt-Text][AVL-Baum-Einfügen-Fall3.2]
 
 >Die Prozedur *upin*: Wenn *upin* aufgerufen wird, so ist bal(p) ∈ {-1, +1} und die Höhe des Teilbaumes mit Wurzel p ist um 1 gewachsen. Wir müssen darauf achten, dass diese Invariante vor jedem rekursien Aufruf von *upin* gilt; *upin(p)* bricht ab, falls p keinen Vater hat, d.h. wenn p die Wurzel des Baumes ist. Wir unter scheiden zwei Fälle, je nachdem ob p linker oder rechter Sohn seines Vaters φp.
 
@@ -371,20 +388,41 @@ Fallunterscheidung beim Einfügen:
 
 **Fall 1.1 [bal(φp) = +1]**
 
+[AVL-Baum-Einfügen-upin1.1]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-upin1.1.png  "AVL-Baum-Einfügen-upin 1.1"
+![Alt-Text][AVL-Baum-Einfügen-upin1.1]
+
 **Fall 1.2 [bal(φp) = 0]**
+
+[AVL-Baum-Einfügen-upin1.2]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-upin1.2.png  "AVL-Baum-Einfügen-upin 1.2"
+![Alt-Text][AVL-Baum-Einfügen-upin1.2]
+
+Man beachte, dass vor dem rekursiven Aufruf von *upin* die Invariante gilt.
 
 **Fall 1.3 [bal(φp) = -1]**
 
+[AVL-Baum-Einfügen-upin1.3]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-upin1.3.png  "AVL-Baum-Einfügen-upin 1.3"
+![Alt-Text][AVL-Baum-Einfügen-upin1.3]
+
+
+>Die Invariante sagt, dass der Teilbaum mit Wurzel p in der Höhe um 1 gewachsen ist. Aus der Voraussettzung *bal(φp)* = -1 kann man in diesem Fall schließen, dass bereits vor dem Einfügen des neuen Schlüssels in den linken Teilbaum von φp mit Wurzel p dieser Teilbaum eine um 1 größere Höhe hatte als der rechte Teilbaum von φp. Da der Teilbaum mit Wurzel p in der Höhe noch um 1 gewachsen ist, ist die AVL-Ausgeglichenheit bei φp verletzt. Wir müssen also umstrukturieren und unterscheiden dazu zwei Fälle, je nachdem, ob *bal(p)* = +1 oder *bal(p)* = -1 ist. (Wegen der Invariante ist *bal(p)* = 0 nicht möglich !)
+
 **Fall 1.3.1 [bal(p) = -1]**
+
+[AVL-Baum-Einfügen-upin1.3.1]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-upin1.3.1.png  "AVL-Baum-Einfügen-upin 1.3.1"
+![Alt-Text][AVL-Baum-Einfügen-upin1.3.1]
+
 
 **Fall 1.3.2 [bal(p) = +1]**
 
+[AVL-Baum-Einfügen-upin1.3.2]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Einf%C3%BCgen-upin1.3.2.png  "AVL-Baum-Einfügen-upin 1.3.2"
+![Alt-Text][AVL-Baum-Einfügen-upin1.3.2]
+
+
 **Fall 2 [p ist rechter Sohn seines Vaters φp]**
 >In diesem Fall geht man völlig analog vor und gleicht den Baum, wenn nötig durch eine Rotation nach links. bzw. Doppelrotation rachts-links bei φp wieder aus.
-
-
+  
 >Ein Aufruf der Prozedur *upin* kannn schlimmstenfalls für alle Knoten auf dem Sichpfad von der Einfügestelle zurück zur Wurzel erforderlich sein. In jedem Fall wird von der Einfügestelle zurück zur Wurzel erforderlich sein. In jedem Fall wird aber höchstens eine Rotation oder Doppelrotation durchgeführt.
->
+
 #### Beispiel
 
 ***
@@ -392,10 +430,63 @@ Fallunterscheidung beim Einfügen:
 ### Entfernen
 >Zunächst geht man genau so vor wie bei natürlichen Suchbäumen. Man sucht nach dem zu entfernenden Schlüssel. Findet man ihn nicht, ist das Entfernen bereits beendet. Sonst liegt einer der folgenden drei Fälle vor:
 
+**Fall 1**
+
+>Der zu entfernende Schlüssel ist der Schlüssel eines Knotens, dessen beide Söhne Blätter sind. Dann entfernt man den Knoten und ersetzt ihn durch ein Blatt. Falls der Baum nunmehr nicht der leere Baum geworden ist, bezeichne p den Vater des neuen Blattes. Weil der Teilbaum von p, mit Wurzel q die Höhe 0, 1 oder 2 haben. Hat er die Höhe 1 so ändert man einfach die Balance von p von 0 auf +1 oder -1 und ist fertig. Hat der Teilbaum mit Wurzel q die Höhe 0, so ändert man die Balance p von +1 oder -1 auf 0. In diesem Fall ist die Höhe des Teilbaums  mit Wurzel p um 1 gefallen. Damit können sich auch für alle Knoten auf dem Scuhpfad nach p die Balancefaktoren und die Höhen der Teilbäume verändert haben. Wir rufen daher eine Prozedur upout(p) auf, die die AVL-Ausgeglichenheit wieder herstellt
+
+**Fall 2**
+>Der zu entfernende Schlüssel ist der Schlüssel eines Knotens p, der nur einen inneren Knoten q als Sohn hat. Dann müssen beide Söhne von q Blätter sein. Man ersetzt also den Schlüssel von p durch den Schlüssel von q und ersetzt q durch ein Blatt. Damit ist nunmehr p ein Knoten mit *bal(p)* = 0 und die Höhe des Teilbaums mit Wurzel p um 1 gesunken (von 2 auf 1). Auch in diesem Fall rufen wir *upout(p)* auf um die AVL-Ausgeglichenheit wieder herzustellen.
+
+**Fall 3**
+
+>Der zu entfernende Schlüssel ist der Schlüssel eines Knotens p, dessen beide Söhne innere Knoten sind. Dann geht man wie im Falle natürlicher Suchbäume vor und ersetzt den Schlüssel durch den Schlüssel des symmetrischen Nachfolgers und entfernt den symmetrischen Nachfolger. Dass muss dann ein Knoten sein, dessen Schlüssel wie im Fall 1 und 2 beschrieben entfernt wird. In jedem Fall haben wir das Entfernen reduziert auf die Ausführung der Prozedur *upout(p)* für einen Knoten p mit *bal(p)* = 0, dessen Teilbaum in der Höhe um 1 gefallen ist.
+
+Die Prozedur *upout*: Sie kann längs des Suchpfades rekursiv aufgerufen werden, adjustiert die Höhenbalance und führt gegebenenfalls Rotationen oder Doppelrotationen durch  um den Baum wieder auszugleichen. Wenn *opout(p)* aufgerufen wird, gilt: *bal(p)* = 0 und der Teilbaum mit Wurzel p ist in der Höhe um 1 gefallen. Wir müssen darauf achten, dass diese Invariante vor jedem rekursiven Aufruf von *upout* gilt. Wir unterscheiden wieder zwei Fälle, je nachdem ob p linker oder rechter Sohn seines Vaters φp ist.
+
+**Fall 1 [p ist linker Sohn seines Vaters φp]**
+
+**Fall 1.1 [bal(φp) = -1]
+
+[AVL-Baum-Entfernen-upout1.1]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Entfernen-upout1.1.png  "AVL-Baum-Entfernen-upout 1.1"
+![Alt-Text][AVL-Baum-Entfernen-upout1.1]
+
+Man beachte, dass vor dem rekursiven Aufruf von *upout* die Invariante für φp gilt.
+
+**Fall 1.2 [bal(φp) = 0]**
+
+[AVL-Baum-Entfernen-upout1.2]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Entfernen-upout1.2.png  "AVL-Baum-Entfernen-upout 1.2"
+![Alt-Text][AVL-Baum-Entfernen-upout1.2]
+
+**Fall 1.3 [bal(φp) = +1]**
+
+[AVL-Baum-Entfernen-upout1.3]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Entfernen-upout1.3.png  "AVL-Baum-Entfernen-upout 1.3"
+![Alt-Text][AVL-Baum-Entfernen-upout1.3]
+
+>Der rechte Teilbaum von φp mit der Wurzel q ist also höher als der linke mit Wurzel p, der darüber hinaus noch in der Höhe um 1 gefallen ist. Wir machen eine Fallunterscheidung nach dem Balancefaktor von q.
+
+**Fall 1.3.1 [bal(q) = 0]**
+
+[AVL-Baum-Entfernen-upout1.3.1]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Entfernen-upout1.3.1.png  "AVL-Baum-Entfernen-upout 1.3.1"
+![Alt-Text][AVL-Baum-Entfernen-upout1.3.1]
+
+**Fall 1.3.2 [bal(q) = +1]**
+
+[AVL-Baum-Entfernen-upout1.3.3]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Entfernen-upout1.3.3.png  "AVL-Baum-Entfernen-upout 1.3.3"
+![Alt-Text][AVL-Baum-Entfernen-upout1.3.3]
+
+Man beachte, dass vor dem rekursiven Aufruf von upout die Invariante für r gilt!
+
+**Fall 1.3.3 [bal(q) = -1]**
+
+[AVL-Baum-Entfernen-upout1.3.3]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/AVL-Baum-Entfernen-upout1.3.3.png  "AVL-Baum-Entfernen-upout 1.3.3"
+![Alt-Text][AVL-Baum-Entfernen-upout1.3.3] 
+
+**Fall 2 [p ist rechter Sohn seines Vaters φp]**
+
+ist völlig symmetrisch zum Fall 1 und wird daher nicht näher behandelt.
+
+
 #### Beispiel
 
-## Randomisierte Bäum
-
-## Selbstanordnende Binärbäume
 
 ## B-Bäume
