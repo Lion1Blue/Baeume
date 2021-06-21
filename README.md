@@ -427,13 +427,38 @@ Man beachte, dass vor dem rekursiven Aufruf von *upin* die Invariante gilt.
 
 Vor dem Einfügen des Knoten mit Schlüssel 2
 
-[AVL-Baum-Einfügen-Vor]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/VAL-Baum-Einf%C3%BCgenVor2.png  "AVL-Baum"
-![Alt-Text][AVL-Baum-Einfügen-Vor]
+[AVL-Baum-Einfügen-Vor2]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/VAL-Baum-Einf%C3%BCgenVor2.png  "AVL-Baum"
+![Alt-Text][AVL-Baum-Einfügen-Vor2]
 
 Nach dem Einfügen des Knoten mit Schlüssel 2
 
 [AVL-Baum-Einfügen-Nach2]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/VAL-Baum-Einf%C3%BCgenNach2.png  "AVL-Baum"
 ![Alt-Text][AVL-Baum-Einfügen-Nach2]
+
+***
+
+Vor dem Einfügen des Knoten mit Schlüssel 11
+
+[AVL-Baum-Einfügen-Vor11]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/VAL-Baum-Einf%C3%BCgenVor11.png  "AVL-Baum"
+![Alt-Text][AVL-Baum-Einfügen-Vor11]
+
+Nach dem Einfügen des Knoten mit Schlüssel 11
+
+[AVL-Baum-Einfügen-Nach11]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/VAL-Baum-Einf%C3%BCgenNach11.png  "AVL-Baum"
+![Alt-Text][AVL-Baum-Einfügen-Nach11]
+
+***
+
+Vor dem Einfügen des Knoten mit Schlüssel 31
+
+[AVL-Baum-Einfügen-Vor31]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/VAL-Baum-Einf%C3%BCgenVor31.png  "AVL-Baum"
+![Alt-Text][AVL-Baum-Einfügen-Vor31]
+
+Nach dem Einfügen des Knoten mit Schlüssel 31
+
+[AVL-Baum-Einfügen-Nach31]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/VAL-Baum-Einf%C3%BCgenNach31.png  "AVL-Baum"
+![Alt-Text][AVL-Baum-Einfügen-Nach31]
+
 
 ***
 
