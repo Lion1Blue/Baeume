@@ -425,8 +425,12 @@ Man beachte, dass vor dem rekursiven Aufruf von *upin* die Invariante gilt.
 
 #### Beispiel
 
+Vor dem Einfügen des Knoten mit Schlüssel 2
+
 [AVL-Baum-Einfügen-Vor]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/VAL-Baum-Einf%C3%BCgenVor2.png  "AVL-Baum"
 ![Alt-Text][AVL-Baum-Einfügen-Vor]
+
+Nach dem Einfügen des Knoten mit Schlüssel 2
 
 [AVL-Baum-Einfügen-Nach2]: https://github.com/Lion1Blue/Baeume/blob/main/BilderB%C3%A4ume/VAL-Baum-Einf%C3%BCgenNach2.png  "AVL-Baum"
 ![Alt-Text][AVL-Baum-Einfügen-Nach2]
