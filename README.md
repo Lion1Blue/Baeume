@@ -483,7 +483,7 @@ Man beachte, dass vor dem rekursiven Aufruf von upout die Invariante für r gilt
 
 **Fall 2 [p ist rechter Sohn seines Vaters φp]**
 
-In diesem Fall geht man völlig aanalog vor und gleicht den Baum, wenn nötig, durch eine Rotation nach links bzw. eine Doppelrotation rechts-links bei φp wieder aus.
+In diesem Fall geht man völlig analog vor und gleicht den Baum, wenn nötig, durch eine Rotation nach links bzw. eine Doppelrotation rechts-links bei φp wieder aus.
 
 
 #### Beispiel
